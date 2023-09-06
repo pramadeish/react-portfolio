@@ -1,12 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
 import styled from "styled-components";
+
+
 
 const Section = styled.div`
   height: 100vh;
   scroll-snap-align: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
+
 const Container = styled.div`
   height: 100vh;
   scroll-snap-align: center;
@@ -14,33 +17,21 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 const Left = styled.div`
   flex: 1;
-  position: relative;
 
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 74px;
-`;
 
-const Subtitle = styled.h2`
-  color: rebeccapurple;
-`;
-
-const Desc = styled.p`
-  color: lightgray;
-`;
-
-const Button = styled.button`
-  background-color: rebeccapurple;
-  color: white;
-  font-weight: 500;
-  width: 100px;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
+  @media only screen and (max-width: 768px) {
+    font-size: 60px;
+  }
 `;
 
 const Right = styled.div`
@@ -49,41 +40,61 @@ const Right = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-  
+
+  @media only screen and (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+  }
 `;
 
-const Img = styled.img`
-  width: 800px;
-  height: 600px;
-  object-fit: contain;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  animation: animate 2s infinite ease alternate;
+const WhatWeDo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
 
-  @keyframes animate {
-    to{
-      transform: translateY(20px);
-    }   
-  }
+const Line = styled.img`
+  height: 5px;
+`;
+
+const Subtitle = styled.h2`
+  color: #da4ea2;
+`;
+
+const Desc = styled.p`
+  font-size: 24px;
+  color: lightgray;
+`;
+
+const Button = styled.button`
+  background-color: #da4ea2;
+  color: white;
+  font-weight: 500;
+  width: 120px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
 const Who = () => {
   return (
     <Section>
-      
       <Container>
         <Left>
-          <Img src="./img/prog.png" />
+        
         </Left>
         <Right>
-          <Title>Trust. Work. Outcome.</Title>
-          <Subtitle>-What we Do</Subtitle>
-          <Desc>We enjoy creating delightful and modern experiences</Desc>
-          <Button>Learn More</Button>
+          <Title>Think outside the square space</Title>
+          <WhatWeDo>
+            <Line src="./img/line.png" />
+            <Subtitle>Who we Are</Subtitle>
+          </WhatWeDo>
+          <Desc>
+            a creative group of designers and developers with a passion for the
+            arts.
+          </Desc>
+          <Button>See our works</Button>
         </Right>
       </Container>
     </Section>
