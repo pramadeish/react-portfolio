@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import Map from "./Map";
 
 const Section = styled.div`
   height: 100vh;
@@ -74,9 +75,9 @@ const Right = styled.div`
 const Contact = () => {
   const ref = useRef();
   const [success, setSuccess] = useState(null);
+
   return (
     <Section>
-      {" "}
       <Container>
         <Left>
           <Form ref={ref} >
@@ -94,7 +95,7 @@ const Contact = () => {
           </Form>
         </Left>
         <Right>
-          
+          <Map />
         </Right>
       </Container>
     </Section>
